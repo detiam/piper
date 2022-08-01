@@ -115,9 +115,10 @@ if enable_tests
     flake8 = find_program('flake8')
     if flake8.found()
         test('flake8', flake8,
-             args: ['--ignore=E501,W504',
+             args: ['--config=' + join_paths(meson.current_source_dir(), '.flake8'),
                     join_paths(meson.current_source_dir(), 'piper'),
-                    join_paths(meson.current_source_dir(), 'piper.in')])
+                    join_paths(meson.current_build_dir(), 'piper'),
+                    join_paths(meson.current_build_dir(), 'piper.devel')])
     endif
 
     test_svg_files = find_program('tests/check-svg.py')
