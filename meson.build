@@ -109,7 +109,14 @@ configure_file(input: 'piper.in',
                output: 'piper.devel',
                configuration: config_piper_devel)
 
-meson.add_install_script('meson_install.sh')
+if meson.version().version_compare('>=0.59.0')
+    gnome.post_install(
+        gtk_update_icon_cache: true,
+        update_desktop_database: true
+    )
+else
+    meson.add_install_script('meson_install.sh')
+endif
 
 if enable_tests
     flake8 = find_program('flake8')
