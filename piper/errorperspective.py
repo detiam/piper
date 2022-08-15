@@ -61,8 +61,3 @@ class ErrorPerspective(Gtk.Box):
         @param message The detail message to display, as str.
         """
         self.label_detail.set_label(detail)
-
-    @GtkTemplate.Callback
-    def _on_quit_button_clicked(self, button):
-        window = button.get_toplevel()
-        window.destroy()

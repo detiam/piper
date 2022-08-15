@@ -5,7 +5,7 @@ from .gi_composites import GtkTemplate
 
 import gi
 gi.require_version("Gtk", "3.0")
-from gi.repository import GObject, Gtk, Gdk  # noqa
+from gi.repository import GObject, Gtk  # noqa
 
 
 @GtkTemplate(ui="/org/freedesktop/Piper/ui/WelcomePerspective.ui")
@@ -75,13 +75,6 @@ class WelcomePerspective(Gtk.Box):
     def can_shutdown(self):
         """Whether this perspective can safely shutdown."""
         return True
-
-    @GtkTemplate.Callback
-    def _on_quit_button_clicked(self, button):
-        window = button.get_toplevel()
-
-        if not window.emit("delete-event", Gdk.Event.new(Gdk.EventType.DELETE)):
-            window.destroy()
 
     @GtkTemplate.Callback
     def _on_device_row_activated(self, listbox, row):
