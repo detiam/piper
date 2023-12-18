@@ -1,3 +1,17 @@
+# zhfix fork
+
+long time no release, and I need:
+
+- zh_CN translation
+- normal icon, don't hava black background in kde
+- maybe some new commit
+
+so I create this.
+
+aur link: https://aur.archlinux.org/packages/piper-zhfix
+
+---
+
 Piper
 =====
 
